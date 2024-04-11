@@ -11,7 +11,7 @@ C - Close
 U - Up  
 D - Down  
 
-G - Go (trigger pami)
+G - Go (trigger pami)  
 T - reseT (voir Silanus)
 
 ## Arbre
@@ -22,7 +22,7 @@ ROBOT/
 └── main/  
 $\quad$ └── + robot_orders.py   
 $\quad$ └── + strategies.py  
-$\quad$ └── + **interface graphique orange pi:** app_run.py (voir Silanus)  
+$\quad$ └── + **interface graphique orange pi:** main_r2t2.py    
 PAMI/    
 ├── + **vision pami:** UltrasonicSimple_test.ino  
 └── + **contrôle pami2:** Xbee_PAM2.ino  
