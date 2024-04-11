@@ -47,7 +47,8 @@
 #include <Adafruit_PWMServoDriver.h>
 #include <AccelStepper.h>
 #include <SoftwareSerial.h>
-
+#include <VL53L0X.h> // Bibliothèque des ToF
+#include <TCA9548A.h> //Bibliothèque du mux
 // Set DEBUG to false to disable debug messages
 #define DEBUG true
 #define STEPPERINIT false
@@ -125,6 +126,17 @@ long steps;
 int deg;
 long angle_steps;
 bool jo = false;
+
+
+/*Instanciate Mux and ToF*/
+TCA9548A multiplexeurI2C;
+VL53L0X tofSensorGrabX;
+VL53L0X tofSensorGrabY;
+VL53L0X tofSensorGrabZ;
+VL53L0X tofSensorCollisionXY; 
+VL53L0X tofSensorCollisionYZ;
+VL53L0X tofSensorCollisionZX;
+
 
 void setup()
 {
@@ -312,6 +324,115 @@ void setup()
 //  
  }
 
+
+void initialisationAllTof(){
+  /* Fonction qui vérifie que les ToF soient bien branché et initialisé,
+   * En considérant que les ToF grabX,grabY,grabZ sont branché sur (0,1,2)
+   * et les ToF de collision XY,YZ,ZX sont branché sur (3,4,5)
+   *  ATTENTION au premier téléversement le premier port I2C est beugué, il faut juste changer de prise I2C du Mux sur l'arduino
+   */
+  delay(1000);
+  multiplexeurI2C.openChannel(0);
+  if(!tofSensorGrabX.init()){
+    Serial.println("Ne peut pas initialiser le telemetre de la pince x");
+  }
+  multiplexeurI2C.closeChannel(0);
+  multiplexeurI2C.openChannel(1);
+  if(!tofSensorGrabY.init()){
+    Serial.println("Ne peut pas initialiser le telemetre de la pince y");
+  }
+  multiplexeurI2C.closeChannel(1);
+  multiplexeurI2C.openChannel(2);
+  if(!tofSensorGrabZ.init()){
+    Serial.println("Ne peut pas initialiser le telemetre de la pince z");
+  }
+  multiplexeurI2C.closeChannel(2);
+  multiplexeurI2C.openChannel(3);
+  if(!tofSensorCollisionXY.init()){
+    Serial.println("Ne peut pas initialiser le telemetre Collision XY");
+  }
+  multiplexeurI2C.closeChannel(3);
+  multiplexeurI2C.openChannel(4);
+  if(!tofSensorCollisionYZ.init()){
+    Serial.println("Ne peut pas initialiser le telemetre Collision YZ");
+  }
+  multiplexeurI2C.closeChannel(4);
+  multiplexeurI2C.openChannel(5);
+  if(!tofSensorCollisionZX.init()){
+    Serial.println("Ne peut pas initialiser le telemetre Collision ZX");
+  }
+  multiplexeurI2C.closeChannel(5);
+  multiplexeurI2C.closeAll();
+}
+
+
+void ReadAllToF(){ //fonction qui va lire et afficher tout les telemetres et les prints dans le port série
+  Serial.println("LECTURE DES TOFS : ");
+  multiplexeurI2C.openChannel(0);
+  Serial.println(tofSensorGrabX.readRangeSingleMillimeters());
+  multiplexeurI2C.closeChannel(0);
+  multiplexeurI2C.openChannel(1);
+  Serial.println(tofSensorGrabY.readRangeSingleMillimeters());
+  multiplexeurI2C.closeChannel(1);
+  multiplexeurI2C.openChannel(2);
+  Serial.println(tofSensorGrabZ.readRangeSingleMillimeters());
+  multiplexeurI2C.closeChannel(2);
+  multiplexeurI2C.openChannel(3);
+  Serial.println(tofSensorCollisionXY.readRangeSingleMillimeters());
+  multiplexeurI2C.closeChannel(3);
+  multiplexeurI2C.openChannel(4);
+  Serial.println(tofSensorCollisionYZ.readRangeSingleMillimeters());
+  multiplexeurI2C.closeChannel(4);
+  //multiplexeurI2C.openChannel(5);
+  //Serial.println(tofSensorGrabZX.readRangeSingleMillimeters());
+  //multiplexeurI2C.closeChannel(5);
+  multiplexeurI2C.closeAll();
+}
+
+
+int ReadOneToF(int port){
+  /*
+  * Fonction retournant la valeur en millimètre de la distance mesurée par le télémètre
+  * En paramètre on passe la valeur de la porte 0,1,2,3,4,5,6,7
+  * 
+  */
+  int distance=0;
+  switch(port){
+    case 0 :
+    multiplexeurI2C.openChannel(0);
+    distance = tofSensorGrabX.readRangeSingleMillimeters();
+    multiplexeurI2C.closeChannel(0);
+    return distance;
+    case 1 :
+    multiplexeurI2C.openChannel(1);
+    distance = tofSensorGrabY.readRangeSingleMillimeters();
+    multiplexeurI2C.closeChannel(1);
+    return distance;
+    case 2 :
+    multiplexeurI2C.openChannel(2);
+    distance = tofSensorGrabZ.readRangeSingleMillimeters();
+    multiplexeurI2C.closeChannel(2);
+    return distance;
+    case 3 :
+    multiplexeurI2C.openChannel(3);
+    distance = tofSensorCollisionXY.readRangeSingleMillimeters();
+    multiplexeurI2C.closeChannel(3);
+    return distance;
+    case 4 :
+    multiplexeurI2C.openChannel(4);
+    distance = tofSensorCollisionYZ.readRangeSingleMillimeters();
+    multiplexeurI2C.closeChannel(4);
+    return distance;
+    case 5 :
+    multiplexeurI2C.openChannel(5);
+    distance = tofSensorGrabZX.readRangeSingleMillimeters();
+    multiplexeurI2C.closeChannel(5);
+    return distance;
+    default : 
+    multiplexeurI2c.closeAll();
+    return distance;
+  }
+}
 
 void loop()
 {
