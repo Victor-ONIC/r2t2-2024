@@ -1,5 +1,28 @@
 # r2t2-2024
 
+## TODO
+**LiDAR**  
+Créer le code LiDAR et l'associer au code de l'Orange Pi.  
+
+**TOFs**  
+Mettre les 3 TOFs de proximité sur le robot (Gozlan).  
+Combiner leur code avec celui de l'Arduino.  
+Tout envoyer sur le port série ? Comment l'Orange Pi gère-t-elle ces infos ? 
+
+**PAMIs**  
+Gérer l'évitement.  
+Etablir les stratégies.  
+
+**Robot**  
+Comment déposer les plantes empotées dans la jardinière ?
+Etablir des stratégies hardcodées.  
+Gérer l'évitement avec les TOFs et le LiDAR.
+
+**Misc**  
+Démarrer l'interface graphique au lancement de l'Orange Pi.  
+Backup carte SD.  
+Voitures personnelles ?  
+
 ## Codage de communication:
 F - Forward  
 B - Backwards  
@@ -28,9 +51,8 @@ PAMI/
 └── + **contrôle pami2:** Xbee_PAM2.ino  
  
  ## Outils
--> lien vers blink pour lidar (merci arthur)  
--> lien vers sleepsaver pour stratégies (merci arthur)  
--> lien vers VNC
+-> **blink** pour le lidar (merci Arthur) https://gitlab.com/sharpattack/blink  
+-> **sleepsaver** pour stratégies (merci Arthur) https://gitlab.com/sharpattack/sleepsaver  
 
 ## Règlement
 xxx
