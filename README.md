@@ -1,4 +1,4 @@
-# r2t2-2024
+# r2t2-2024 [Coupe de France de Robotique](https://www.coupederobotique.fr/)
 
 ## TODO  
 **LiDAR**  
@@ -55,4 +55,7 @@ PAMI/
 -> **sleepsaver** pour stratégies (merci Arthur) https://gitlab.com/sharpattack/sleepsaver  
 
 ## Règlement
-xxx
+[Rediffusion de la présentation](https://www.youtube.com/watch?v=kxao-HGvjS0)  
+[Diapositives de la présentation](https://www.coupederobotique.fr/wp-content/uploads/RentreeRobotique_2024.pdf)  
+[Règlement Eurobot 2024](https://www.coupederobotique.fr/wp-content/uploads/Eurobot2024_Rules_CUP_FR_FINAL.pdf)  
+[Check-list d'homologation](https://www.coupederobotique.fr/wp-content/uploads/E2024_Memento_Homologuation_FR.pdf)  
