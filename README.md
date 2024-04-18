@@ -18,11 +18,6 @@ Etablir des stratégies hardcodées.
 Gérer l'évitement avec les TOFs et le LiDAR.  
 Etablir des stratégies dynamiques.  
 
-**Misc**  
-Démarrer l'interface graphique au lancement de l'Orange Pi.  
-Backup carte SD.  
-Voitures personnelles ?  
-
 ## Codage de communication:
 ### Moteurs de mouvement
 F - Forwards  
