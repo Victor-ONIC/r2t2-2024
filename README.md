@@ -13,7 +13,7 @@ Gérer l'évitement.
 Etablir les stratégies.  
 
 **Robot**  
-Comment déposer les plantes empotées dans la jardinière ?  
+Ouvrir les pinces lors du startup.
 Etablir des stratégies hardcodées.  
 Gérer l'évitement avec les TOFs et le LiDAR.  
 Etablir des stratégies dynamiques.  

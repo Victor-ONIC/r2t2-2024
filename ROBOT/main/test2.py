@@ -236,7 +236,7 @@ class window:
         self.rb_mvt_Z.configure(highlightbackground="#d9d9d9")
         self.rb_mvt_Z.configure(highlightcolor="black")
         self.rb_mvt_Z.configure(justify='left')
-        self.rb_mvt_Z.configure(text='''axe Z''')
+        self.rb_mvt_Z.configure(text='''Axe Z''')
         self.rb_mvt_Z.configure(variable=self.axe)
         self.rb_mvt_Z.configure(value="Z")
 
@@ -254,7 +254,7 @@ class window:
         self.rb_mvt_Y.configure(highlightbackground="#d9d9d9")
         self.rb_mvt_Y.configure(highlightcolor="black")
         self.rb_mvt_Y.configure(justify='left')
-        self.rb_mvt_Y.configure(text='''axe Y''')
+        self.rb_mvt_Y.configure(text='''Axe Y''')
         self.rb_mvt_Y.configure(variable=self.axe)
         self.rb_mvt_Y.configure(value="Y")
 
