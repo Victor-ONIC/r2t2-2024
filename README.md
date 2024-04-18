@@ -36,7 +36,7 @@ U - Up
 D - Down  
 P - Stop (voir Silanus)  
 ### Spécial
-G - Go (signal de départ pour les PAMIs)
+G - Go (signal de départ pour les PAMIs)  
 T - reseT (voir Silanus)
 
 ## Arbre
