@@ -377,15 +377,15 @@ void ReadAllToF(){ //fonction qui va lire et afficher tout les telemetres et les
   multiplexeurI2C.openChannel(2);
   Serial.println(tofSensorGrabZ.readRangeSingleMillimeters());
   multiplexeurI2C.closeChannel(2);
-  multiplexeurI2C.openChannel(3);
+  /*multiplexeurI2C.openChannel(3);
   Serial.println(tofSensorCollisionXY.readRangeSingleMillimeters());
   multiplexeurI2C.closeChannel(3);
   multiplexeurI2C.openChannel(4);
   Serial.println(tofSensorCollisionYZ.readRangeSingleMillimeters());
   multiplexeurI2C.closeChannel(4);
-  //multiplexeurI2C.openChannel(5);
-  //Serial.println(tofSensorGrabZX.readRangeSingleMillimeters());
-  //multiplexeurI2C.closeChannel(5);
+  multiplexeurI2C.openChannel(5);
+  Serial.println(tofSensorCollisionZX.readRangeSingleMillimeters());
+  multiplexeurI2C.closeChannel(5);*/
   multiplexeurI2C.closeAll();
 }
 
@@ -429,7 +429,7 @@ int ReadOneToF(int port){
     multiplexeurI2C.closeChannel(5);
     return distance;
     default : 
-    multiplexeurI2c.closeAll();
+    multiplexeurI2C.closeAll();
     return distance;
   }
 }
