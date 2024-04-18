@@ -24,17 +24,19 @@ Backup carte SD.
 Voitures personnelles ?  
 
 ## Codage de communication:
-F - Forward  
-B - Backwards  
-
-R - Rotate  
-
-O - Open  
-C - Close  
-U - Up  
-D - Down  
-
-G - Go (trigger pami)  
+### Moteurs de mouvement
+F - Forwards
+B - Backwards
+R - Rotate
+S - Stop (arrêt d'urgence)
+### Moteurs de pinces
+O - Open
+C - Close
+U - Up
+D - Down
+P - Stop (voir Silanus)
+### Spécial
+G - Go (signal de départ pour les PAMIs)
 T - reseT (voir Silanus)
 
 ## Arbre
