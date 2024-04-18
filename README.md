@@ -25,16 +25,16 @@ Voitures personnelles ?
 
 ## Codage de communication:
 ### Moteurs de mouvement
-F - Forwards
-B - Backwards
-R - Rotate
-S - Stop (arrêt d'urgence)
+F - Forwards  
+B - Backwards  
+R - Rotate  
+S - Stop (arrêt d'urgence)  
 ### Moteurs de pinces
-O - Open
-C - Close
-U - Up
-D - Down
-P - Stop (voir Silanus)
+O - Open  
+C - Close  
+U - Up  
+D - Down  
+P - Stop (voir Silanus)  
 ### Spécial
 G - Go (signal de départ pour les PAMIs)
 T - reseT (voir Silanus)
