@@ -15,6 +15,7 @@ VL53L0X tofSensorCollisionZX;
 #define tofZ 4
 
 #define dist_to_stop 120
+#define TOF_ACTIFS false
 
 int tof[3]={tofX, tofY, tofZ};
 
@@ -49,8 +50,10 @@ void loop() {
     Serial.println("Channel "+String(channel)+" : "+String(dist));
     delay(10);
     if(dist<dist_to_stop){
+      #if TOF_ACTIFS
       digitalWrite(tof[channel], HIGH);
       ledON(tof[channel]);
+      #endif
     }
     else{
       digitalWrite(tof[channel], LOW);
