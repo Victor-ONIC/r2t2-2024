@@ -1,6 +1,0 @@
-{
-    "configuration": "cpu=atmega2560",
-    "board": "arduino:avr:mega",
-    "sketch": "Motion_Control_and_Grippers_SerialV3.4.ino",
-    "programmer": "avrisp"
-}
