@@ -1,107 +1,66 @@
 from robot_orders import *
 
-STRATEGY1= [
-    # Préparer la pince Y pour atteindre les panneaux
-    claw("C", "Y"),  
-    gripper("U", "Y", 76),
-
-    # Premier panneau solaire
-    move("B", "X", 40),
-    rotate(5),
-    move("F", "Y", 70),
-    point("P", 5), 
-    move("B", "Y", 70),
-    rotate(-5),
-
-    # Second panneau solaire
-    move("B", "X", 225),
-    rotate(5),
-    move("F", "Y", 65),
+STRATEGY_1 = [
+    claw("C", "Y"),
+    
+    # Panneau 1
+    move("B", "X", 50),
+    rotate(10),
+    move("F", "Y", 105),
     point("P", 5),
-    move("B", "Y", 70),
-    rotate(-5),
+    move("B", "Y", 105),
+    rotate(-10),
 
-    # Troisième panneau solaire
-    move("B", "X", 225),
-    rotate(5),
-    move("F", "Y", 60),
-    point("P", 5), 
-    move("B", "Y", 70),
-    rotate(-7),
-
-    move("B", "X", 300),
-    rotate(-30),
-
-    # Plante 1 axe Z: s'avancer, prendre, se reculer
-    gripper("U", "Z", 45),
-    move("F", "Z", 250),
-    claw("C", "Z"),
-    point("P", 15),
-    gripper("U", "Z", 50),
-    move("B", "Z", 50),
-
-    rotate(-120),
-    claw("O", "Y"),
-    move("F", "Z", 50),
-    move("B", "Y", 70),
-    rotate(-7),
-    move("B", "X", 300),
-    rotate(-30),
-    gripper("U", "Z", 45),
-    move("F", "Z", 250),
-    claw("C", "Z"),
-    gripper("U", "Z", 50),
-    move("B", "Z", 50),
-    rotate(-120),
-    claw("O", "Y"),
-    move("F", "Z", 50),
-    move("B", "Y", 70),
-    rotate(-7),
-    move("B", "X", 300),
-    rotate(-30),
-    gripper("U", "Z", 45),
-    move("F", "Z", 250),
-    claw("C", "Z"),
-    gripper("U", "Z", 50),
-    move("B", "Z", 50),
-    rotate(-120),
-    claw("O", "Y"),
-    move("F", "Z", 50),
-    claw("O", "Y"),
-    move("F", "Z", 50),
-    move("B", "Y", 70),
-    rotate(-7),
-    move("B", "X", 300),
-    rotate(-30),
-    gripper("U", "Z", 45),
-    move("F", "Z", 250),
-    claw("C", "Z"),
-    gripper("U", "Z", 50),
-    move("B", "Z", 50),
-    rotate(-120),
-    claw("O", "Y"),
-    move("F", "Z", 50),
-    claw("O", "Y"),
-    move("F", "Z", 50),
-    move("B", "Y", 70),
-    rotate(-7),
-    move("B", "X", 300),
-    rotate(-30),
-    gripper("U", "Z", 45),
-    move("F", "Z", 250),
-    claw("C", "Z"),
-    gripper("U", "Z", 50),
-    move("B", "Z", 50),
-    rotate(-120),
-    claw("O", "Y"),
-    move("F", "Z", 50)]
-
-STRATEGY3= [claw("C", "Y"),
-    claw("O", "Y")]
-
-STRATEGY2= [move("F", "Y", 1000),
-    point("P", 15),
-    rotate(120),
+    # Panneau 2
+    move("B", "X", 235),
+    rotate(10),
+    move("F", "Y", 105),
     point("P", 5),
-    move("B", "Y", 1000),
-    point("P", 20)]
+    move("B", "Y", 105),
+    rotate(-10),
+
+    # Panneau 3
+    move("B", "X", 235),
+    rotate(10),
+    move("F", "Y", 100),
+    point("P", 5),
+    move("B", "Y", 100),
+    rotate(-15),
+    
+    # Ouverture des pinces
+    claw("O","Z"),
+    gripper("U","Z",15),
+    claw("O","X"),
+    gripper("D","X",60),
+    claw("O","Y"),
+    gripper("D","Y",60),
+
+    # Plante 1
+    move("F","Z",300),
+    claw("C","Z"),
+    move("B", "Z", 60),
+    gripper("U", "Z", 100),
+    rotate(-120),
+
+    # Plante 2
+    move("F", "Y", 110),
+    claw("C", "Y"),
+    move("B", "Y", 60),
+    gripper("U", "Y", 100),
+    rotate(-120),
+
+    # Plante 3
+    move("F", "X", 120),
+    claw("C", "X"),
+    move("B", "X", 60),
+    gripper("U", "X", 100),
+    rotate(-140),
+    
+    # Vers les pots
+    move("F", "X", 790),  # problème!
+    claw("O", "X"),
+]
+
+STRATEGY_2 = [
+    move("F", "X", 300),
+]

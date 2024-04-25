@@ -60,7 +60,7 @@ def bleu(*args):
     affichage_farming_mars("bleu")
     connexion()
     print("Stratégie 1")
-    com.thread_strategy(STRATEGY1)
+    com.thread_strategy(STRATEGY_1)
 
 
 def jaune(*args):
@@ -81,7 +81,7 @@ def jaune(*args):
     affichage_farming_mars("jaune")
     connexion()
     print("Stratégie 2")
-    com.thread_strategy(STRATEGY2)
+    com.thread_strategy(STRATEGY_2)
 
 def affichage_r2t2(couleur):
     _w1.logo_r2t2 = tk.Label(_w1.top)
