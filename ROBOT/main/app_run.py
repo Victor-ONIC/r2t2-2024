@@ -85,11 +85,22 @@ class Toplevel1:
         self.bt_jaune.configure(highlightbackground="#FFBF00")
         self.bt_jaune.configure(highlightcolor="#FFBF00")
 
+        global _is_timer_ON
+        _is_timer_ON = tk.IntVar()
+        self.timer_btn = tk.Checkbutton(self.top)
+        self.timer_btn.pack()
+        self.timer_btn.place(x=510, y=300, height=50, width=120)
+        self.timer_btn.configure(text="Timer")
+        self.timer_btn.configure(variable=_is_timer_ON)
+        self.timer_btn.configure(onvalue=1, offvalue=0)
+        self.timer_btn.configure(background="#C01C24")
+        self.timer_btn.configure(font="-family {Orator Std} -size 14")
+        # self.timer_btn.configure(command=app_run_support.start_timer)
 
         self.bt_quitt = tk.Button(self.top)
         self.bt_quitt.place(x=640, y=20, height=50, width=50)
         self.bt_quitt.configure(relief="flat")
-        self.bt_quitt.configure(activebackground="#ED1C24")
+        self.bt_quitt.configure(activebackground="#ED1015")
         photo_location = os.path.join(_location,"./quit_rouge.png")
         global _img1
         _img1 = tk.PhotoImage(file=photo_location)

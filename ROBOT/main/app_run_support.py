@@ -15,7 +15,7 @@ import app_run
 
 import time
 
-import CCommunication2 as com
+import CCommunication2
 from strategies import *
 from threading import Timer, Thread, Event
 
@@ -26,7 +26,7 @@ PORT = "COM11"
 BAUDRATE = 9600
 score = 0
 
-com = com.communication(PORT)
+com = CCommunication2.communication(PORT)
 
 _location = os.path.dirname(__file__)
 _debug = True # False to eliminate debug printing from callback functions.
@@ -42,6 +42,11 @@ def main(*args):
     _w1 = app_run.Toplevel1(_top1)
     root.mainloop()
 
+def start_timer():
+    if app_run._is_timer_ON and CCommunication2._has_started:
+        print("###### AFFICHER LE TIMER QUI PROGRESSE ######")
+        return
+
 def bleu(*args):
     if _debug:
         print('app_run_support.bleu')
@@ -49,6 +54,7 @@ def bleu(*args):
             print ('    another arg:', arg)
         sys.stdout.flush()
     _w1.top.configure(background="#005B8C")
+    _w1.timer_btn.destroy()
     _w1.bt_jaune.destroy()
     _w1.bt_bleu.configure(relief=FLAT)
     _w1.Label0.destroy()
@@ -59,6 +65,7 @@ def bleu(*args):
     affichage_r2t2("bleu")
     affichage_farming_mars("bleu")
     connexion()
+    start_timer()
     print("Stratégie 1")
     com.thread_strategy(STRATEGY_1)
 
@@ -70,6 +77,7 @@ def jaune(*args):
             print ('    another arg:', arg)
         sys.stdout.flush()
     _w1.top.configure(background="#FFBF00")
+    _w1.timer_btn.destroy()
     _w1.bt_bleu.destroy()
     _w1.bt_jaune.configure(relief=FLAT)
     _w1.Label0.destroy()
@@ -80,6 +88,7 @@ def jaune(*args):
     affichage_r2t2("jaune")
     affichage_farming_mars("jaune")
     connexion()
+    start_timer()
     print("Stratégie 2")
     com.thread_strategy(STRATEGY_2)
 

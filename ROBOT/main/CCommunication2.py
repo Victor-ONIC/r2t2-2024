@@ -5,10 +5,6 @@ from threading import Timer, Thread, Event
 
 BAUDRATE = 9600
 
-# Notifications: à changer
-ACK: bytes = bytes([1])
-NAK: bytes = bytes([2])
-
 class communication:
     def __init__(self, port):
         self.port = port
@@ -128,6 +124,8 @@ class communication:
         self.thread_stra.start()
 
     def wait_for_ack(self):
+        global _has_started
+        _has_started = False
         c = 0
         while c == 0:
             c = self.s.in_waiting
@@ -138,6 +136,7 @@ class communication:
         if c > 0:
             message = self.s.read_until(b"\n")
             print("message:",message)
+            _has_started = True
         self.event_in_coming.set()
 
 
