@@ -15,7 +15,7 @@ import app_run
 
 import time
 
-import CCommunication2
+import CCommunication2 as com
 from strategies import *
 from threading import Timer, Thread, Event
 
@@ -25,8 +25,9 @@ from threading import Timer, Thread, Event
 PORT = "COM11"
 BAUDRATE = 9600
 score = 0
+elapsed_time = 0.0
 
-com = CCommunication2.communication(PORT)
+com = com.communication(PORT)
 
 _location = os.path.dirname(__file__)
 _debug = True # False to eliminate debug printing from callback functions.
@@ -43,9 +44,22 @@ def main(*args):
     root.mainloop()
 
 def start_timer():
-    if app_run._is_timer_ON and CCommunication2._has_started:
-        print("###### AFFICHER LE TIMER QUI PROGRESSE ######")
-        return
+    if _w1._is_timer_ON and com.run_started:
+        print("###### AFFICHER LE TIMER ######")
+        _w1.LabelTimer = tk.Label(_w1.top)
+        _w1.LabelTimer.place(x=540, y=350, height=50, width=100)
+        _w1.LabelTimer.configure(text="0.0")
+        _w1.LabelTimer.configure(background="#d9d9d9")
+        _w1.LabelTimer.configure(font="-family {Fixedsys} -size 20")
+        _w1.LabelTimer.configure(relief="solid")
+        
+        run_timer()
+
+def run_timer():
+    global elapsed_time
+    elapsed_time += 0.1
+    _w1.LabelTimer.configure(text=elapsed_time)
+    _top1.after(100, run_timer)
 
 def bleu(*args):
     if _debug:

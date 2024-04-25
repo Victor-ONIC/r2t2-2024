@@ -15,6 +15,7 @@ class communication:
         self.event_stop = Event()
         self.event_in_coming = Event()
         self.event_end_of_strategy = Event()
+        self.run_started = False
 
     def connexion(self):
         print("Connexion")
@@ -124,8 +125,6 @@ class communication:
         self.thread_stra.start()
 
     def wait_for_ack(self):
-        global _has_started
-        _has_started = False
         c = 0
         while c == 0:
             c = self.s.in_waiting
@@ -136,7 +135,7 @@ class communication:
         if c > 0:
             message = self.s.read_until(b"\n")
             print("message:",message)
-            _has_started = True
+            self.run_started = True
         self.event_in_coming.set()
 
 
