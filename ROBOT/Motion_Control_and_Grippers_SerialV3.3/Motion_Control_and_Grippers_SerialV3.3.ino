@@ -222,106 +222,106 @@ void setup()
   Serial.println(digitalRead(OE_Servos_PIN));
   #endif 
   
-//  // Calibrage zero position basse Grippers 
-//  digitalWrite(GRIPX_STEPPER_DIR_PIN,LOW); // LOW descente/HIGH montée
-//  digitalWrite(GRIPY_STEPPER_DIR_PIN,LOW);  
-//  digitalWrite(GRIPZ_STEPPER_DIR_PIN,LOW);
-//  
-//  byte stop_switchX = digitalRead(XLimit_PIN);
-//  byte stop_switchY = digitalRead(YLimit_PIN);
-//  byte stop_switchZ = digitalRead(ZLimit_PIN);
-//  
-//  #if DEBUG
-//  Serial.print(stop_switchX);
-//  Serial.print(stop_switchY);
-//  Serial.println(stop_switchZ);
-//  #endif
-//
-//  // stop_switch at 0 if  XLimit_PIN is LOW 
-//  // GRIPX_STEPPER ON
-//  digitalWrite(GRIPX_STEPPER_EN_PIN,LOW);
-//  while(stop_switchX)
-//  {
-//    digitalWrite(GRIPX_STEPPER_STEP_PIN, HIGH);
-//    delayMicroseconds(600);
-//    digitalWrite(GRIPX_STEPPER_STEP_PIN, LOW);
-//    delayMicroseconds(600);
-//    stop_switchX = digitalRead(XLimit_PIN);
-//  }
-//  // Initial high position X to solar panel
-//  digitalWrite(GRIPX_STEPPER_DIR_PIN,HIGH);
-//  for(int s; s<2400;s++){
-//    digitalWrite(GRIPX_STEPPER_STEP_PIN, HIGH);
-//    delayMicroseconds(600);
-//    digitalWrite(GRIPX_STEPPER_STEP_PIN, LOW);
-//    delayMicroseconds(600);
-//  }
-//  // GRIPX_STEPPER OFF(FREE)
-//  digitalWrite(GRIPX_STEPPER_EN_PIN,HIGH);
-//
-//  // stop_switch at 0 if  YLimit_PIN is LOW 
-//  // GRIPY_STEPPER ON
-//  digitalWrite(GRIPY_STEPPER_EN_PIN,LOW);
-//  while(stop_switchY)
-//  {
-//    digitalWrite(GRIPY_STEPPER_STEP_PIN, HIGH);
-//    delayMicroseconds(600);
-//    digitalWrite(GRIPY_STEPPER_STEP_PIN, LOW);
-//    delayMicroseconds(600);
-//    stop_switchY = digitalRead(YLimit_PIN); 
-//  } 
-//  delay(10);
-//  // Initial high position Y to solar panel
-//  digitalWrite(GRIPY_STEPPER_DIR_PIN,HIGH);
-//  for(int s=0; s<1900;s++){
-//    digitalWrite(GRIPY_STEPPER_STEP_PIN, HIGH);
-//    delayMicroseconds(600);
-//    digitalWrite(GRIPY_STEPPER_STEP_PIN, LOW);
-//    delayMicroseconds(600);
-//  }
-//  // GRIPY_STEPPER OFF (FREE)
-//  digitalWrite(GRIPY_STEPPER_EN_PIN,HIGH);
-//  
-//  // stop_switch at 0 if  ZLimit_PIN is LOW 
-//  // GRIPZ_STEPPER ON
-//  digitalWrite(GRIPZ_STEPPER_EN_PIN,LOW);
-//  while(stop_switchZ)
-//  {
-//    digitalWrite(GRIPZ_STEPPER_STEP_PIN, HIGH);
-//    delayMicroseconds(600);
-//    digitalWrite(GRIPZ_STEPPER_STEP_PIN, LOW);
-//    delayMicroseconds(600);
-//    stop_switchZ = digitalRead(ZLimit_PIN); 
-//  } 
-//  // Initial high position Z to solar panel
-//  digitalWrite(GRIPZ_STEPPER_DIR_PIN,HIGH);
-//  for(int s=0; s<2100;s++){
-//    digitalWrite(GRIPZ_STEPPER_STEP_PIN, HIGH);
-//    delayMicroseconds(600);
-//    digitalWrite(GRIPZ_STEPPER_STEP_PIN, LOW);
-//    delayMicroseconds(600);
-//  }
-//  // GRIPZ_STEPPER OFF (FREE)
-//  digitalWrite(GRIPZ_STEPPER_EN_PIN,HIGH);
-//  
-//  #if DEBUG
-//  Serial.print("Disable Motion Stepper EN : ");
-//  Serial.println(String(digitalRead(STEPPER1_MOTION_EN_PIN)) + " - " +  String(digitalRead(STEPPER2_MOTION_EN_PIN)) + " - "+ String(digitalRead(STEPPER3_MOTION_EN_PIN)));
-//  #endif
-//  disable_en_motion_stepper();
-//
-//  sendSteppersPositions();
-//    #if DEBUG
-//  Serial.print("Jack :");
-//  Serial.println(digitalRead(JACK));
-//  #endif
-//  
-//  while(digitalRead(JACK)); 
-//
-//  #if DEBUG
-//  //Serial.println("Jack out...");
-//  #endif
-//  
+ // Calibrage zero position basse Grippers 
+ digitalWrite(GRIPX_STEPPER_DIR_PIN,LOW); // LOW descente/HIGH montée
+ digitalWrite(GRIPY_STEPPER_DIR_PIN,LOW);  
+ digitalWrite(GRIPZ_STEPPER_DIR_PIN,LOW);
+ 
+ byte stop_switchX = digitalRead(XLimit_PIN);
+ byte stop_switchY = digitalRead(YLimit_PIN);
+ byte stop_switchZ = digitalRead(ZLimit_PIN);
+ 
+ #if DEBUG
+ Serial.print(stop_switchX);
+ Serial.print(stop_switchY);
+ Serial.println(stop_switchZ);
+ #endif
+
+ // stop_switch at 0 if  XLimit_PIN is LOW 
+ // GRIPX_STEPPER ON
+ digitalWrite(GRIPX_STEPPER_EN_PIN,LOW);
+ while(stop_switchX)
+ {
+   digitalWrite(GRIPX_STEPPER_STEP_PIN, HIGH);
+   delayMicroseconds(600);
+   digitalWrite(GRIPX_STEPPER_STEP_PIN, LOW);
+   delayMicroseconds(600);
+   stop_switchX = digitalRead(XLimit_PIN);
+ }
+ // Initial high position X to solar panel
+ digitalWrite(GRIPX_STEPPER_DIR_PIN,HIGH);
+ for(int s; s<2400;s++){
+   digitalWrite(GRIPX_STEPPER_STEP_PIN, HIGH);
+   delayMicroseconds(600);
+   digitalWrite(GRIPX_STEPPER_STEP_PIN, LOW);
+   delayMicroseconds(600);
+ }
+ // GRIPX_STEPPER OFF(FREE)
+ digitalWrite(GRIPX_STEPPER_EN_PIN,HIGH);
+
+ // stop_switch at 0 if  YLimit_PIN is LOW 
+ // GRIPY_STEPPER ON
+ digitalWrite(GRIPY_STEPPER_EN_PIN,LOW);
+ while(stop_switchY)
+ {
+   digitalWrite(GRIPY_STEPPER_STEP_PIN, HIGH);
+   delayMicroseconds(600);
+   digitalWrite(GRIPY_STEPPER_STEP_PIN, LOW);
+   delayMicroseconds(600);
+   stop_switchY = digitalRead(YLimit_PIN); 
+ } 
+ delay(10);
+ // Initial high position Y to solar panel
+ digitalWrite(GRIPY_STEPPER_DIR_PIN,HIGH);
+ for(int s=0; s<1900;s++){
+   digitalWrite(GRIPY_STEPPER_STEP_PIN, HIGH);
+   delayMicroseconds(600);
+   digitalWrite(GRIPY_STEPPER_STEP_PIN, LOW);
+   delayMicroseconds(600);
+ }
+ // GRIPY_STEPPER OFF (FREE)
+ digitalWrite(GRIPY_STEPPER_EN_PIN,HIGH);
+ 
+ // stop_switch at 0 if  ZLimit_PIN is LOW 
+ // GRIPZ_STEPPER ON
+ digitalWrite(GRIPZ_STEPPER_EN_PIN,LOW);
+ while(stop_switchZ)
+ {
+   digitalWrite(GRIPZ_STEPPER_STEP_PIN, HIGH);
+   delayMicroseconds(600);
+   digitalWrite(GRIPZ_STEPPER_STEP_PIN, LOW);
+   delayMicroseconds(600);
+   stop_switchZ = digitalRead(ZLimit_PIN); 
+ } 
+ // Initial high position Z to solar panel
+ digitalWrite(GRIPZ_STEPPER_DIR_PIN,HIGH);
+ for(int s=0; s<2100;s++){
+   digitalWrite(GRIPZ_STEPPER_STEP_PIN, HIGH);
+   delayMicroseconds(600);
+   digitalWrite(GRIPZ_STEPPER_STEP_PIN, LOW);
+   delayMicroseconds(600);
+ }
+ // GRIPZ_STEPPER OFF (FREE)
+ digitalWrite(GRIPZ_STEPPER_EN_PIN,HIGH);
+ 
+ #if DEBUG
+ Serial.print("Disable Motion Stepper EN : ");
+ Serial.println(String(digitalRead(STEPPER1_MOTION_EN_PIN)) + " - " +  String(digitalRead(STEPPER2_MOTION_EN_PIN)) + " - "+ String(digitalRead(STEPPER3_MOTION_EN_PIN)));
+ #endif
+ disable_en_motion_stepper();
+
+ sendSteppersPositions();
+   #if DEBUG
+ Serial.print("Jack :");
+ Serial.println(digitalRead(JACK));
+ #endif
+ 
+ while(digitalRead(JACK)); 
+
+ #if DEBUG
+ //Serial.println("Jack out...");
+ #endif
+ 
  }
 
 
@@ -938,7 +938,7 @@ int ReadOneToF(int port){
     return distance;
     case 5 :
     multiplexeurI2C.openChannel(5);
-    distance = tofSensorGrabZX.readRangeSingleMillimeters();
+    distance = tofSensorCollisionZX.readRangeSingleMillimeters();
     multiplexeurI2C.closeChannel(5);
     return distance;
     default : 

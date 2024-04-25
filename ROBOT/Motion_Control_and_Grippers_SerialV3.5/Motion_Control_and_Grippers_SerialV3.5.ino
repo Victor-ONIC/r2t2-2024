@@ -57,7 +57,7 @@
 // Set DEBUG to false to disable debug messages
 #define DEBUG false
 #define TIMERON false
-#define CALIBRATE false
+#define CALIBRATE true
 
 #define BAUDRATE 9600
 #define MAXSPEED 6000 //V2 4000 V3
@@ -308,14 +308,14 @@ void setup()
     delayMicroseconds(600);
     stop_switchZ = digitalRead(ZLimit_PIN); 
   } 
-  // Initial high position Z to solar panel
-  digitalWrite(GRIPZ_STEPPER_DIR_PIN,HIGH);
-  for(int s=0; s<2100;s++){
-    digitalWrite(GRIPZ_STEPPER_STEP_PIN, HIGH);
-    delayMicroseconds(600);
-    digitalWrite(GRIPZ_STEPPER_STEP_PIN, LOW);
-    delayMicroseconds(600);
-  }
+  // Initial high position Z NOT NECESSARY
+  // digitalWrite(GRIPZ_STEPPER_DIR_PIN,HIGH);
+  // for(int s=0; s<2100;s++){
+  //   digitalWrite(GRIPZ_STEPPER_STEP_PIN, HIGH);
+  //   delayMicroseconds(600);
+  //   digitalWrite(GRIPZ_STEPPER_STEP_PIN, LOW);
+  //   delayMicroseconds(600);
+  // }
   #endif
 
   // GRIPX_STEPPER OFF(FREE)

@@ -1,9 +1,0 @@
-Les TOFs des pinces vont scanner les plantes et retourner la distance.
-Le prochain ordre sera d'avancer de cette distance.
-
-Pour les TOFs collision, il faut faire des checks toutes les X dixièmes de secondes.
-Si un obstacle est présent, alors on s'arrête en urgence.
-
-Les TOFs de collision doivent être placés au dessus du niveau de la barrière, des plantes, des PAMIs même peut-être.
-
-Champ de vision ? Angles morts ?

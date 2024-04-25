@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Interface graphique
+Exec=bash -c "cd /home/orangepi/r2t2-2024/ROBOT/main && python3 main_r2t2.py"

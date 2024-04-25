@@ -1,33 +1,45 @@
 from robot_orders import *
 
-STRATEGY1= [claw("C", "Y"),
+STRATEGY1= [
+    # Préparer la pince Y pour atteindre les panneaux
+    claw("C", "Y"),  
     gripper("U", "Y", 76),
+
+    # Premier panneau solaire
     move("B", "X", 40),
     rotate(5),
     move("F", "Y", 70),
-    point("P", 5), #Premier panneau solaire
+    point("P", 5), 
     move("B", "Y", 70),
     rotate(-5),
+
+    # Second panneau solaire
     move("B", "X", 225),
     rotate(5),
     move("F", "Y", 65),
-    point("P", 5),#Second panneau solaire
+    point("P", 5),
     move("B", "Y", 70),
     rotate(-5),
+
+    # Troisième panneau solaire
     move("B", "X", 225),
     rotate(5),
     move("F", "Y", 60),
-    point("P", 5), #Troisième panneau solaire
+    point("P", 5), 
     move("B", "Y", 70),
     rotate(-7),
+
     move("B", "X", 300),
     rotate(-30),
+
+    # Plante 1 axe Z: s'avancer, prendre, se reculer
     gripper("U", "Z", 45),
     move("F", "Z", 250),
     claw("C", "Z"),
     point("P", 15),
     gripper("U", "Z", 50),
     move("B", "Z", 50),
+
     rotate(-120),
     claw("O", "Y"),
     move("F", "Z", 50),
