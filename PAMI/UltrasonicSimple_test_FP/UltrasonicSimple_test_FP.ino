@@ -35,37 +35,32 @@
  * This example code is released into the MIT License.
  */
 
-#include <Ultrasonic.h>
+#include <HCSR04.h>
 
-#define MIN_DISTANCE 8 // 8cm! Modifiable
+#define MIN_DISTANCE 8 // 8cm!
 #define echoBack 10  // D10 
 /*
  * Pass as a parameter the trigger and echo pin, respectively,
  * or only the signal pin (for sensors 3 pins), like:
  * Ultrasonic ultrasonic(13);
  */
-Ultrasonic ultrasonic(11, 12);//trig, echo
+HCSR04 ultrasonic(11, 12);//trig, echo
 int distance;
 
 void setup() {
-  Serial.begin(9600);
   pinMode(echoBack,OUTPUT);
 }
 
 void loop() {
   
-  distance = ultrasonic.read();
-//  Serial.print("Distance in CM: ");
-//  Serial.println(distance);
+  distance = ultrasonic.dist();
   if(distance < MIN_DISTANCE)
   {
-  digitalWrite(echoBack,HIGH);
-   //Serial.println(digitalRead(echoBack));
+    digitalWrite(echoBack,HIGH);
   } 
   else
   {
     digitalWrite(echoBack,LOW); 
-    //Serial.println(digitalRead(echoBack));
   }
-  delay(50);
+  delay(10);
 }
