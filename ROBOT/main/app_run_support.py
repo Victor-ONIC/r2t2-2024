@@ -41,6 +41,9 @@ def main(*args):
     global _top1, _w1
     _top1 = root
     _w1 = app_run.Toplevel1(_top1)
+
+    global _strat
+    _strat = _w1._strat
     root.mainloop()
 
 def start_timer():
@@ -69,6 +72,9 @@ def bleu(*args):
         sys.stdout.flush()
     _w1.top.configure(background="#005B8C")
     _w1.timer_btn.destroy()
+    _w1.strat_btn1.destroy()
+    _w1.strat_btn2.destroy()
+    _w1.strat_btn3.destroy()
     _w1.bt_jaune.destroy()
     _w1.bt_bleu.configure(relief=FLAT)
     _w1.Label0.destroy()
@@ -80,8 +86,13 @@ def bleu(*args):
     affichage_farming_mars("bleu")
     connexion()
     start_timer()
-    print("Stratégie 1")
-    com.thread_strategy(STRATEGY_1)
+
+    if _strat.get() == 1:
+        com.thread_strategy(STRATEGY_1B)
+    elif _strat.get() == 2:
+        com.thread_strategy(STRATEGY_2B)
+    elif _strat.get() == 3:
+        com.thread_strategy(STRATEGY_3B)
 
 
 def jaune(*args):
@@ -92,6 +103,9 @@ def jaune(*args):
         sys.stdout.flush()
     _w1.top.configure(background="#FFBF00")
     _w1.timer_btn.destroy()
+    _w1.strat_btn1.destroy()
+    _w1.strat_btn2.destroy()
+    _w1.strat_btn3.destroy()
     _w1.bt_bleu.destroy()
     _w1.bt_jaune.configure(relief=FLAT)
     _w1.Label0.destroy()
@@ -103,8 +117,13 @@ def jaune(*args):
     affichage_farming_mars("jaune")
     connexion()
     start_timer()
-    print("Stratégie 2")
-    com.thread_strategy(STRATEGY_2)
+
+    if _strat.get() == 1:
+        com.thread_strategy(STRATEGY_1J)
+    elif _strat.get() == 2:
+        com.thread_strategy(STRATEGY_2J)
+    elif _strat.get() == 3:
+        com.thread_strategy(STRATEGY_3J)
 
 def affichage_r2t2(couleur):
     _w1.logo_r2t2 = tk.Label(_w1.top)

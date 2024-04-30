@@ -160,7 +160,7 @@ def main():
     com.connexion()
     time.sleep(3)
     print("Stratégie 1")
-    com.thread_strategy(STRATEGY_1)
+    com.thread_strategy(STRATEGY_1B)
 
 
 
