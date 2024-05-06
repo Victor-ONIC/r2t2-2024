@@ -49,6 +49,14 @@ class communication:
         self.s.write(restart())
         self.done()
 
+    def define_camp_pami(self, camp):
+        self.thread_com = Thread(target=self.th_define_camp_pami, args=(camp,))
+        self.thread_com.start()
+
+    def th_define_camp_pami(self, camp):
+        self.s.write(pami(camp))
+        self.done()
+
     def rotate(self, angle):
         self.thread_com = Thread(target=self.th_rotate, args=(angle,))
         self.thread_com.start()
@@ -162,7 +170,7 @@ def main():
     com.connexion()
     time.sleep(3)
     print("Stratégie 1")
-    com.thread_strategy(STRATEGY_1)
+    com.thread_strategy(STRATEGY1)
 
 
 

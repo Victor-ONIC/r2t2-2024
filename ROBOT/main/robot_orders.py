@@ -19,6 +19,17 @@ def stop():
     print("order:", m, sep=" -> ")
     return m
 
+def pami(camp):
+    """
+    pami: Indiquer le camp vers lequel les pami iront
+    """
+    if camp =="g":
+        m = b"g\n"
+    if camp =="d":
+        m = b"d\n"
+    print("order:", m, sep=" -> ")
+    return m
+
 def restart():
     """
     To finish movement: Reprise d'un mouvement après un Stop
