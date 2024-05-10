@@ -20,8 +20,8 @@ from threading import Timer, Thread, Event
 
 # Périphérique de communication série
 # PORT = "/dev/ttyUSB0"
-#PORT = "/dev/ttyACM0"
-PORT = "COM11"
+PORT = "/dev/ttyACM0"
+#PORT = "COM11"
 BAUDRATE = 9600
 
 com = com.communication(PORT)

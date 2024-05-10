@@ -21,8 +21,8 @@ from threading import Timer, Thread, Event
 
 # Périphérique de communication série
 # PORT = "/dev/ttyUSB0"
-#PORT = "/dev/ttyACM0"
-PORT = "COM11"
+PORT = "/dev/ttyACM0"
+#PORT = "COM11"
 BAUDRATE = 9600
 score = 0
 
@@ -60,7 +60,7 @@ def bleu(*args):
     affichage_farming_mars("bleu")
     connexion()
     print("Stratégie 1")
-    com.thread_strategy(STRATEGY_1)
+    com.thread_strategy(STRATEGY2B)
 
 
 def jaune(*args):
@@ -81,7 +81,7 @@ def jaune(*args):
     affichage_farming_mars("jaune")
     connexion()
     print("Stratégie 2")
-    com.thread_strategy(STRATEGY_2)
+    com.thread_strategy(STRATEGY2J)
 
 def affichage_r2t2(couleur):
     _w1.logo_r2t2 = tk.Label(_w1.top)
